@@ -52,8 +52,8 @@ end = struct
   and subty(T.Int, T.Int) = true
     | subty(T.Bool, T.Bool) = true
     | subty(T.Unit, T.Unit) = true
-    | subty(T.Function(typ1, typ2), T.Function(typ3, typ4)) = if (subty(typ1, typ3))
-                                                              then (if (subty(typ2, typ4))
+    | subty(T.Function(typ1, typ2), T.Function(typ3, typ4)) = if (subty(typ3, typ1))
+                                                              then (if (subty(typ4, typ2))
                                                                     then true
                                                                     else false
                                                                    )
