@@ -30,6 +30,7 @@ structure L23RR = struct
     | tos False = "F"
     | tos Unit = "()"
     | tos (Var x) = x
+    
     | tos (Lam (x, tau, t1)) = brack ("lam" +-+ x +-+ Type.tos tau +-+ tos t1)
     | tos (App (t1, t2)) = par (tos t1 +-+ tos t2)
     | tos (Fix t1) = par ("fix" +-+ tos t1)
